@@ -1,23 +1,33 @@
 <template>
-<div class="container">
-  <div class="business-logo">
-    <div class="business-logo--main">
-      <img alt="business logo" src="../assets/business-logo.png">
-
+<div id="landing">
+<div id="section">
+  <b-col>
+  <b-row align-h="between" class="logo">
+    <b-col cols="2" class="business-logo">
+      <img src="../assets/business-logo.png" alt="business-logo">
+    </b-col>
+    <b-col cols="3"  class="business-ballons">
+      <img src="../assets/ballons.png" alt="ballons">
+    </b-col>
+  </b-row>
+  
+  <div class="button-group">
+    <div class="button-group--row">
+      
+        <b-button class="login-button" size="lg"  @click="goToHome()">LOGIN</b-button>
+      
+        <b-button class="login-button--info" size="lg"><img src="../assets/Vector.png" alt="info-logo"> </b-button>
+     
     </div>
-    <div class="business-logo--ballons">
-     <img src="../assets/ballons.png" alt="ballons">
-    </div>
   </div>
-  <div class="login-button">
-    <img src="../assets/login-icon.png" alt="login button">
+  <footer>
+  <div class="footer-text">
+    <h4>Powered by</h4>
+    <h4>My Invites</h4>
   </div>
-  <div class="footer">
-    <footer>
-      <h4>Powered By</h4>
-      <h4>My Invites</h4>
-    </footer>
-  </div>
+  </footer>
+  </b-col>
+</div>
 </div>
 </template>
 
@@ -26,86 +36,63 @@ export default {
   name: 'Landing',
   props: {
     msg: String
+  },
+  methods:{
+   goToHome(){
+   this.$router.push('/about'); 
+      }
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.container{
-  height: 100%;
+#landing{
   background-image: url('../assets/background.png');
   background-repeat: no-repeat;
   background-size: cover;
 }
-@media only screen and (min-width: 375px){
-    .container{
-      height:100%;
-    }
+.section{
+  /* background-image: url('../assets/background.png');
+  background-repeat: no-repeat;
+  background-size: cover; */
+  height: 100vh;
 }
-
-.business-logo{
-  display: flex;
-  justify-content: space-between;
-}
-@media only screen and (min-width: 375px){
-  .business-logo{
-    display: flex;
-    align-items: center;
-    justify-content: end;
-  }
-  .business-logo--main{
-    margin-right:-100px;
-  }
-}
-
-@media only screen and (min-width: 1024px){
-  .business-logo{
-  display: flex;
-  justify-content: space-between;
-}
-}
-
 .login-button{
-  margin-top: 35px;
+background: linear-gradient(90deg, rgba(30, 98, 164, 0.522) 0%, rgba(31, 96, 161, 0.9) 0%, rgba(54, 194, 239, 0.9) 53.68%, rgba(30, 98, 164, 0.9) 100%);
+background-blend-mode: darken;
+width:100%;
+border-radius: 10px 0px 0px 10px;
+}
+.login-button--info{
+background: linear-gradient(90deg, rgba(30, 98, 164, 0.522) 0%, rgba(31, 96, 161, 0.9) 0%, rgba(54, 194, 239, 0.9) 53.68%, rgba(30, 98, 164, 0.9) 100%);
+background-blend-mode: darken;
+border-radius: 0px 10px 10px 0px;
+}
+.button-group{
   display: flex;
   justify-content: center;
 }
-
-.footer{
+.button-group--row{
   display: flex;
-  justify-content: center;
+  width: 33%;
 }
-
-@media only screen and (min-width: 375px) {
-  .footer{
-    margin-top: 18%;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .footer{
-    margin-top: 6%;
-  }
-}
-
 footer{
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  margin-top: 6%;
 }
-  
-h3 {
-  margin: 40px 0 0;
+.footer-text{
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 30px;
+text-align: center;
+letter-spacing: -0.5px;
+color: #606D79;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+.router-link{
+  text-decoration: none;
 }
 </style>
